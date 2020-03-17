@@ -1,15 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
+import axios from 'axios';
 
 import App from './App.vue';
 import { routes } from './routes';
 import store from './store/store';
 
 Vue.use(VueRouter);
-Vue.use(VueResource);
 
-Vue.http.options.root = 'https://vue-stock-trader-e97bc.firebaseio.com/';
+axios.defaults.baseURL = 'https://vue-stock-trader-e97bc.firebaseio.com/';
 
 Vue.filter('currency', (value) => {
   return '$' + value.toLocaleString();

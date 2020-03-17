@@ -1,9 +1,9 @@
-import Vue from 'vue';
+import axios from 'axios';
 
 export const loadData = ({commit}) => {
-  Vue.http.get('data.json')
-    .then((response) => response.json())
-    .then((data) => {
+  axios.get('data.json')
+    .then((response) => {
+      const data = response.data;
       if (data) {
         const stocks = data.stocks;
         const funds = data.funds;

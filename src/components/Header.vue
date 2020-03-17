@@ -44,6 +44,7 @@
 
 <script>
   import { mapActions } from "vuex";
+  import axios from 'axios';
 
   export default {
     data() {
@@ -70,7 +71,7 @@
           stockPortfolio: this.$store.getters.stockPortfolio,
           stocks: this.$store.getters.stocks
         }
-        this.$http.put('data.json', data);
+        axios.put('data.json', data);
       },
       loadData() {
         this.fetchData();
