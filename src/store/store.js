@@ -11,7 +11,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   actions,
   modules: {
-    stocks,
-    portfolio
+    stocks: {
+      namespaced: true,
+      ...stocks
+    },
+    portfolio: {
+      namespaced: true,
+      ...portfolio
+    }
   }
 });

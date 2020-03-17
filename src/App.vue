@@ -18,7 +18,7 @@
       appHeader: Header
     },
     created() {
-      this.$store.dispatch("initStocks");
+      this.$store.dispatch("stocks/initStocks");
     }
   };
 </script>

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex';
+  import { mapActions } from 'vuex';
 
   export default {
     props: ['stock'],
@@ -44,7 +44,7 @@
       }
     },
     methods: {
-      ...mapActions({
+      ...mapActions('portfolio', {
         placeSellOrder: 'sellStock'
       }),
       sellStock() {

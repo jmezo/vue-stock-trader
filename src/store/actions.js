@@ -13,8 +13,17 @@ export const loadData = ({commit}) => {
           stockPortfolio, funds
         };
 
-        commit('SET_STOCKS', stocks);
-        commit('SET_PORTFOLIO', portfolio);
+        commit('stocks/SET_STOCKS', stocks);
+        commit('portfolio/SET_PORTFOLIO', portfolio);
       }
     });
 };
+
+export const saveData = (context) => {
+  const data = {
+    funds: context.getters['portfolio/funds'],
+    stockPortfolio: context.getters['portfolio/stockPortfolio'],
+    stocks: context.getters['stocks/stocks']
+  }
+  axios.put('data.json', data);
+}

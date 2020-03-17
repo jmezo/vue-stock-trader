@@ -54,24 +54,20 @@
     },
     computed: {
       funds() {
-        return this.$store.getters.funds;
+        return this.$store.getters['portfolio/funds'];
       }
     },
     methods: {
       ...mapActions({
-        randomizeStocks: 'randomizeStocks',
-        fetchData: 'loadData'   
+        randomizeStocks: 'stocks/randomizeStocks',
+        fetchData: 'loadData',
+        storeData: 'saveData'
       }),
       endDay() {
         this.randomizeStocks();
       },
       saveData() {
-        const data = {
-          funds: this.$store.getters.funds,
-          stockPortfolio: this.$store.getters.stockPortfolio,
-          stocks: this.$store.getters.stocks
-        }
-        axios.put('data.json', data);
+        this.storeData();
       },
       loadData() {
         this.fetchData();
